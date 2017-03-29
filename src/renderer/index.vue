@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import stringify from 'json-stable-stringify';
+
 export default {
     name: 'main',
     data () {
@@ -50,8 +52,8 @@ export default {
                     }
                 });
             }
-
-            this.result = JSON.stringify(resultObj);
+            console.log(stringify(resultObj, { space: '    ' }));
+            this.result = stringify(resultObj, { space: '    ' });
         },
     },
 }
