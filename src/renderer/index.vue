@@ -26,17 +26,16 @@ export default {
             let tempkoMsg = this.message_ko.split('\n');
             let tempenMsg = this.message_en.split('\n');
             const resultObj = {};
-            const template = {
-                "ko": "",
-                "en": ""
-            }
 
             tempkoMsg.forEach((msg)=> {
                 const msgSplit = msg.match(/"[^"]*"/gi);
                 if(msgSplit && msgSplit.length == 2) {
                     const key = msgSplit[0].replace(/"/gi, '');
                     const ko = msgSplit[1].replace(/"/gi, '');
-                    template.ko = ko;
+                    const template = {
+                        "ko": ko,
+                        "en": ko
+                    };
                     resultObj[key] = template;
                 }
             });
